@@ -8,6 +8,7 @@ int binary[101];
 int total;
 int dp[101][m];
 int ans;
+
 void initDp()
 {
     for (int i = 0; i < 101; i++)
@@ -70,6 +71,5 @@ int main()
         solveCase();
         cout << ans << endl;
     }
-
     return 0;
 }
