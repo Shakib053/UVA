@@ -1,16 +1,27 @@
 #include <iostream>
 using namespace std;
-int p[31], w[31];
-int mw[101];
+int p[1001], w[1001];
+int mw[1001];
 int g;
 int test;
 int n;
+int dp[1001][31];
+void initDp()
+{
+    for (int i = 0; i < 1001; i++)
+    {
+        for (int j = 0; j < 31; j++)
+            dp[i][j] = -1;
+    }
+}
 int solve(int i, int capacity)
 {
     int left, right;
+    if (dp[i][capacity] != -1)
+        return dp[i][capacity];
     if (i == n)
     {
-        return 0;
+        return dp[i][capacity] = 0;
     }
     left = solve(i + 1, capacity);
     if (capacity >= w[i])
@@ -18,9 +29,9 @@ int solve(int i, int capacity)
     else
         right = 0;
     if (left > right)
-        return left;
+        return dp[i][capacity] = left;
     else
-        return right;
+        return dp[i][capacity] = right;
 }
 
 int main()
@@ -35,6 +46,7 @@ int main()
             cin >> p[i] >> w[i];
         }
         cin >> g;
+        initDp();
         for (int i = 0; i < g; i++)
         {
             cin >> mw[i];
