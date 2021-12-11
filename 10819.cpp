@@ -23,14 +23,14 @@ int solve(int i, int capacity)
         else if (capacity > 2000 && capacity <= m + 200)
             return 0;
         else
-            return -2000;
+            return -10;
     }
 
     left = solve(i + 1, capacity);
     if (m + 200 >= capacity + price[i])
         right = solve(i + 1, capacity + price[i]) + favour[i];
     else
-        right = -2000;
+        right = -10;
     if (left > right)
         return dp[i][capacity] = left;
     else
