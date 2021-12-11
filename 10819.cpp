@@ -46,7 +46,6 @@ int main()
         }
         initDp();
         cout << solve(0, 0) << endl;
-        // solve(0, 0, 0);
     }
 
     return 0;
