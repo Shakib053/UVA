@@ -1,3 +1,5 @@
+//N Queens Problem,Dynamic ChessBoard size and number is taken as input
+// and max queen value sum is given as output
 #include <iostream>
 using namespace std;
 int n;
