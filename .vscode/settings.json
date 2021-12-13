@@ -23,6 +23,7 @@
     "iterator": "cpp",
     "memory": "cpp",
     "numeric": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "iostream": "cpp"
   }
 }
