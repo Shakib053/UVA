@@ -5,7 +5,8 @@ int x, y;
 int chessboard[8][8];
 int visited[8][8];
 int ans[8];
-
+int cnt = 0;
+int times = 1;
 void initboard()
 {
     for (int i = 0; i < 8; i++)
@@ -58,25 +59,35 @@ int finalcheck(int i, int j)
 }
 void print()
 {
-
+    initboard();
+    if (cnt == 0)
+    {
+        cout << "SOLN"
+             << "       COLUMN" << endl;
+        cout << " #      1 2 3 4 5 6 7 8\n\n";
+        cnt = 1;
+    }
     for (int i = 0; i < 8; i++)
     {
         chessboard[ans[i]][i] = 1;
     }
-    for (int i = 0; i < 8; i++)
+    int flag = 0;
+    if (chessboard[x - 1][y - 1] == 1)
+        flag = 1;
+    if (flag == 1)
     {
-        for (int j = 0; j < 8; j++)
+        // cout << " " << times << "    ";
+        printf("%2d      ", times);
+        times++;
+        for (int i = 0; i < 8; i++)
         {
-            cout << chessboard[i][j];
+            if (i != 7)
+                cout << ans[i] + 1 << " ";
+            else
+                cout << ans[i] + 1;
         }
-
         cout << endl;
     }
-    cout << endl;
-    cout << endl;
-    // for (int i = 0; i < 8; i++)
-    //     cout << ans[i] << " ";
-    // cout << endl;
 }
 void solve(int i)
 {
@@ -104,14 +115,11 @@ int main()
     {
         cin >> x >> y;
         initboard();
-        // for (int i = 0; i < 8; i++)
-        // {
-        //     for (int j = 0; j < 8; j++)
-        //         cin >> chessboard[i][j];
-        // }
-        // chessboard[x - 1][y - 1] = 0;
         initvisited();
         solve(0);
+        times = 1, cnt = 0;
+        if (test)
+            cout << endl;
     }
 
     return 0;
