@@ -58,6 +58,7 @@ int finalcheck(int i, int j)
 }
 void print()
 {
+
     for (int i = 0; i < 8; i++)
     {
         chessboard[ans[i]][i] = 1;

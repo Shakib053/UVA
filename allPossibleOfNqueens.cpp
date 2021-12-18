@@ -56,6 +56,7 @@ int finalcheck(int i, int j)
 }
 void print()
 {
+    initboard();
     for (int i = 0; i < 8; i++)
     {
         chessboard[ans[i]][i] = 1;
@@ -64,7 +65,7 @@ void print()
     {
         for (int j = 0; j < 8; j++)
         {
-            cout << chessboard[i][j];
+            cout << chessboard[i][j] << " ";
         }
 
         cout << endl;
