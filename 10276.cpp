@@ -1,6 +1,7 @@
 #include <iostream>
+
 using namespace std;
-int n;
+int n, v;
 int test;
 int peg[51];
 int cnt;
@@ -18,29 +19,30 @@ int sqrtCheck(int j)
     }
     return 0;
 }
-void solve(int i, int val)
+void solve(int i)
 {
-
     if (i == n)
         return;
     if (peg[i] == 0)
     {
-        peg[i] = val;
+        peg[i] = v;
+        v++;
         cnt++;
-        solve(i, val + 1);
+        solve(i);
         return;
     }
     for (int j = 0; j <= i; j++)
     {
-        if (sqrtCheck(peg[j] + val) == 1)
+        if (sqrtCheck(peg[j] + v) == 1)
         {
-            peg[j] = val;
+            peg[j] = v;
+            v++;
             cnt++;
-            solve(i, val + 1);
+            solve(i);
             return;
         }
     }
-    solve(i + 1, val);
+    solve(i + 1);
 }
 int main()
 {
@@ -50,8 +52,10 @@ int main()
         cin >> n;
         cnt = 0;
         initpeg();
-        solve(0, 1);
+        v = 1;
+        solve(0);
         cout << cnt << endl;
     }
+
     return 0;
 }
