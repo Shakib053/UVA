@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
+#include <stdio.h>
 using namespace std;
 int n, m, test;
+char s[1223];
 int row, col;
 char grid[101][101];
 int visited[101][101];
@@ -74,30 +76,48 @@ void solve()
 }
 void print()
 {
+    char format[] = "%?d";
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
-            cout << monkey[i][j] << " ";
+        {
+            format[1] = monkey[j] + '0';
+            if (j)
+                cout << " ";
+            cout << format << monkey[i][j];
+        }
         cout << endl;
     }
+    cout << "%%" << endl;
 }
 int main()
 {
-    cin >> test;
-    while (test--)
+    while (1)
     {
-        cin >> n >> m;
-
+        int k;
+        n = 0;
+        while (gets(s))
+        {
+            if (s[0] == '%')
+                break;
+            m = 0;
+            for (k = 0; s[k]; k++)
+            {
+                if (s[k] != ' ')
+                    grid[n][m++] = s[k];
+            }
+            n++;
+        }
+        // initvisited();
+        // solve();
+        // print();
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
-                cin >> grid[i][j];
+                cout << grid[i][j] << " ";
+            cout << endl;
         }
-        initvisited();
-        solve();
-        // cout << ans << endl;
-        cout << cnt << endl;
-        print();
+        cout << "%" << endl;
     }
 
     return 0;
