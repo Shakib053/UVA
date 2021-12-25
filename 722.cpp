@@ -1,10 +1,16 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int n, m, test;
+int n, m, test, p, q;
 int row, col;
 char grid[101][101];
 int visited[101][101];
 int ans;
+void initM()
+{
+
+    for (m = 0; grid[0][m]; m++)
+        ;
+}
 void initvisited()
 {
     for (int i = 0; i < n; i++)
@@ -34,14 +40,17 @@ void solve()
 int main()
 {
     cin >> test;
+    while (getchar() != '\n')
+        ;
+    gets(grid[0]);
     while (test--)
     {
-        cin >> n >> m;
-        for (int i = 0; i < n; i++)
-        {
-            cin >> grid[i];
-        }
-        cin >> row >> col;
+        gets(grid[0]);
+        sscanf(grid[0], "%d %d", &row, &col);
+        n = 0, m;
+        while (gets(grid[n]) && grid[n][0])
+            n++;
+        m = strlen(grid[0]);
         initvisited();
         solve();
         cout << ans << endl;
