@@ -1,17 +1,6 @@
 #include <stdio.h>
 char grid[100][100];
 int n;
-void read()
-{
-    n = 1;
-    while (gets(grid[n]))
-    {
-        if (grid[n][0] == '_')
-            break;
-        n++;
-    }
-}
-
 void dfs(int x, int y, char ch)
 {
     grid[x][y] = ch;

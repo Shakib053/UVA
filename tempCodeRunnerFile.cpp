@@ -1,2 +1,2 @@
-
-        for (int j = 0; grid[i][j]; j++)
+if (a[i] > mini)
+            swap(a[i], a[index]);
