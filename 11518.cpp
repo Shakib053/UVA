@@ -29,13 +29,6 @@ void gridPrint()
         cout << endl;
     }
 }
-void counter(int x)
-{
-    if (used[x] == 1)
-        return;
-    cnt++;
-    used[x] = 1;
-}
 void solve(int x)
 {
     if (used[x] == 1)
