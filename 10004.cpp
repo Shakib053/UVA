@@ -7,15 +7,6 @@ int queue[1000];
 int color[1000];
 int front, rear, start;
 int bipartite;
-void print()
-{
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-            cout << grid[i][j] << " ";
-        cout << endl;
-    }
-}
 void initcase()
 {
     for (int i = 0; i < n; i++)
@@ -49,8 +40,6 @@ void bfs(int x)
     while (front < rear)
     {
         int value = dequeue();
-        // cout << value << " ";
-        // color[value] = 1;
         for (int i = 0; i < n; i++)
         {
             if (grid[value][i] == 1)
@@ -58,9 +47,6 @@ void bfs(int x)
                 if (visited[i] == 0)
                 {
                     visited[i] = 1;
-                    int v = grid[value][i];
-                    // color[i] = 1 - color[i];
-
                     color[i] = 1 - color[value];
                     enqueue(i);
                 }
@@ -75,7 +61,6 @@ void bfs(int x)
             }
         }
     }
-    // cout << endl;
 }
 int main()
 {
@@ -95,7 +80,6 @@ int main()
             grid[x][y] = 1;
             grid[y][x] = 1;
         }
-        // print();
         bfs(0);
         if (bipartite == 0)
             cout << "NOT BICOLORABLE.\n";
