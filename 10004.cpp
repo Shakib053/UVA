@@ -7,6 +7,15 @@ int queue[1000];
 int color[1000];
 int front, rear, start;
 int bipartite;
+void print()
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+            cout << grid[i][j] << " ";
+        cout << endl;
+    }
+}
 void initcase()
 {
     for (int i = 0; i < n; i++)
@@ -54,6 +63,7 @@ void bfs(int x)
                 {
                     if (color[i] == color[value])
                     {
+                        // cout << i << endl;
                         bipartite = 0;
                         break;
                     }
@@ -80,6 +90,7 @@ int main()
             grid[x][y] = 1;
             grid[y][x] = 1;
         }
+        // print();
         bfs(0);
         if (bipartite == 0)
             cout << "NOT BICOLORABLE.\n";

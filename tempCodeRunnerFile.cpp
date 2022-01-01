@@ -1,2 +1,1 @@
-if (a[i] > mini)
-            swap(a[i], a[index]);
+   // color[value] = 0;
